@@ -14,24 +14,31 @@ const CardPersonaje = ({ personaje }) => {
   },[])
 
   return (
-    <div className="container text-center">
-    <div className="card mb-3">
-      <img src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}/>
-      <div className="card-body">
-        <h5 className="card-title">{personaje.name}</h5>
-        <p className="card-text">Género: {detalles.gender}</p>
-        <p className="card-text">Color de ojos: {detalles.eye_color}</p>
-        <p className="card-text">Color de pelo: {detalles.hair_color}</p>
-        <div className="btn-group" role="group">
-            <button className="btn btn-secondary" >
-            Leer más
-            </button>
-            <button className="btn btn-danger" >
-            Me gusta
-            </button>            
+    <div className="card" style={{ width: "200px", marginRight: "10px" }}>
+      <img
+        src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
+        className="card-img-top"
+        alt={personaje.name}
+        style={{ width: "100%", height: "150px", objectFit: "cover" }}
+      />
+      <div className="card-body" style={{ padding: "10px" }}>
+        <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>
+          {personaje.name}
+        </h5>
+        <p className="card-text" style={{ fontSize: "14px", margin: "5px 0" }}>
+          Género: {detalles.gender}
+        </p>
+        <p className="card-text" style={{ fontSize: "14px", margin: "5px 0" }}>
+          Color de ojos: {detalles.eye_color}
+        </p>
+        <p className="card-text" style={{ fontSize: "14px", margin: "5px 0" }}>
+          Color de pelo: {detalles.hair_color}
+        </p>
+        <div className="button-group" style={{ marginTop: "auto" }}>
+          <button className="btn btn-secondary">Leer más</button>
+          <button className="btn btn-danger"><i class="fas fa-heart"></i></button>
         </div>
       </div>
-    </div>
     </div>
   );
 };
