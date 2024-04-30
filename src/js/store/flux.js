@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			personajes: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +38,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			loadPersonajes: async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/people');
+					const data = await response.json();
+					const personajesArray = data.people;
+					console.log(personajesArray);
+					if (Array.isArray(personajesArray)) {
+						setStore({ personajes: personajesArray });
+					  } else {
+						console.error('Data retrieved from API is not an array:', data);
+					  }
+				} catch (error) {
+				  	console.error('Error fetching people:', error);
+				}
+			  }
 		}
 	};
 };
