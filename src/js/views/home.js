@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from "../store/appContext";
-import cardPersonaje from '../component/cardPersonaje';
+import CardPersonaje from '../component/cardPersonaje';
 
-const Home = () => {
+export const Home = () => {
   const { store, actions } = useContext(Context);
   const { personajes } = store;
 
@@ -13,10 +13,9 @@ const Home = () => {
   return (
     <div className="text-center">
       <h1>Personajes</h1>
-      {personajes.map(personaje => (
-        <cardPersonaje key={personaje.id} contact={personaje} />
-      ))}
+       {personajes.map(personaje => (
+        <CardPersonaje key={personaje.id} personaje={personaje} />
+      ))} 
     </div>
   );
 };
-export default Home;

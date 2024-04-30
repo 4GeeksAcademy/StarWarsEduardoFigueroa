@@ -43,7 +43,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch('https://www.swapi.tech/api/people');
 					const data = await response.json();
-					const personajesArray = data.people;
+					console.log(data);
+					const personajesArray = data.results;
 					console.log(personajesArray);
 					if (Array.isArray(personajesArray)) {
 						setStore({ personajes: personajesArray });
