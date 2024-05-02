@@ -13,7 +13,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			personajes: []
+			personajes: [],
+			vehículos: [],
+			planetas: [],
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -48,6 +51,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(personajesArray);
 					if (Array.isArray(personajesArray)) {
 						setStore({ personajes: personajesArray });
+					  } else {
+						console.error('Data retrieved from API is not an array:', data);
+					  }
+				} catch (error) {
+				  	console.error('Error fetching people:', error);
+				}
+			  },
+			  loadVehículos : async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/vehicles');
+					const data = await response.json();
+					console.log(data);
+					const vehículosArray = data.results;
+					console.log(vehículosArray);
+					if (Array.isArray(vehículosArray)) {
+						setStore({ vehículos: vehículosArray });
+					  } else {
+						console.error('Data retrieved from API is not an array:', data);
+					  }
+				} catch (error) {
+				  	console.error('Error fetching people:', error);
+				}
+			  },
+			  loadPlanetas : async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/planets');
+					const data = await response.json();
+					console.log(data);
+					const planetasArray = data.results;
+					console.log(planetasArray);
+					if (Array.isArray(planetasArray)) {
+						setStore({ planetas: planetasArray });
 					  } else {
 						console.error('Data retrieved from API is not an array:', data);
 					  }

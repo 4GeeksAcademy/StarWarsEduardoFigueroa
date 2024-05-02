@@ -1,17 +1,18 @@
-import React,{useContext,useEffect,useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from 'react-router-dom';
 
 const CardPersonaje = ({ personaje }) => {
   const { store, actions } = useContext(Context);
   const history = useNavigate();
-  const [detalles,setDetalles] = useState({});
-  useEffect(()=>{
+  const [detalles, setDetalles] = useState({});
+
+  useEffect(() => {
     fetch(`https://www.swapi.tech/api/people/${personaje.uid}`)
-    .then(res => res.json())
-    .then(data => setDetalles(data.result.properties))
-    .catch(err => console.error(err))
-  },[])
+      .then(res => res.json())
+      .then(data => setDetalles(data.result.properties))
+      .catch(err => console.error(err))
+  }, [])
 
   return (
     <div className="card" style={{ width: "200px", marginRight: "10px" }}>
