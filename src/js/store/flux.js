@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			vehículos: [],
 			planetas: [],
+			likes: []
 
 		},
 		actions: {
