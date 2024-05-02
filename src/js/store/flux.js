@@ -90,6 +90,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 				  	console.error('Error fetching people:', error);
 				}
+			  },
+			  setFavorites: (item) =>{
+				const store = getStore()
+				if(!store.likes.includes(item)){
+					setStore({likes:[...store.likes,item]})
+				}
+				
+			
 			  }
 		}
 	};
