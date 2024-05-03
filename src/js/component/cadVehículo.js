@@ -36,8 +36,8 @@ const CardVehículo = ({ vehículo }) => {
           Pasajeros: {detalles.passengers}
         </p>
         <div className="button-group" style={{ marginTop: "auto" }}>
-          <button className="btn btn-secondary">Leer más</button>
-          <button onClick={()=>{actions.setFavorites(vehículo)}} className="btn btn-danger"><i class="fas fa-heart"></i></button>
+          <button className="btn btn-outline-primary">Leer más</button>
+          <button onClick={()=>{actions.setFavorites(vehículo)}} className="btn btn-outline-danger"><i class="fas fa-heart"></i></button>
         </div>
       </div>
     </div>

@@ -11,14 +11,14 @@ export const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg- mb-3">
 			<Link to="/" className="navbar-logo-link" >
 			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrwaGkGjK3zI6lVwbA4ZKLtIMYitO9Ctvqr2adU1Y5w&s" 
 			alt="Star Wars Logo" className="navbar-logo" />
 			</Link>
 			<div className="center">
 				<div className="dropdown" style={{ position: 'relative' }}>
-					<button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 						Favoritos {store.likes.length}
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" style={{ right: 0, top: '100%', marginTop: '5px' }}>
