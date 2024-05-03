@@ -37,7 +37,7 @@ const CardPlaneta = ({ planeta }) => {
                 </p>
                 <div className="button-group" style={{ marginTop: "auto" }}>
                     <button className="btn btn-secondary">Leer más</button>
-                    <button className="btn btn-danger"><i className="fas fa-heart"></i></button>
+                    <button onClick={()=>{actions.setFavorites(planeta)}} className="btn btn-danger"><i class="fas fa-heart"></i></button>
                 </div>
             </div>
         </div>

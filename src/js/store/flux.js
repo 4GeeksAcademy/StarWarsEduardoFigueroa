@@ -24,11 +24,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -43,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+
 			loadPersonajes: async () => {
 				try {
 					const response = await fetch('https://www.swapi.tech/api/people');
@@ -52,14 +55,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(personajesArray);
 					if (Array.isArray(personajesArray)) {
 						setStore({ personajes: personajesArray });
-					  } else {
+					} else {
 						console.error('Data retrieved from API is not an array:', data);
-					  }
+					}
 				} catch (error) {
-				  	console.error('Error fetching people:', error);
+					console.error('Error fetching people:', error);
 				}
-			  },
-			  loadVehículos : async () => {
+			},
+
+			loadVehículos: async () => {
 				try {
 					const response = await fetch('https://www.swapi.tech/api/vehicles');
 					const data = await response.json();
@@ -68,14 +72,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(vehículosArray);
 					if (Array.isArray(vehículosArray)) {
 						setStore({ vehículos: vehículosArray });
-					  } else {
+					} else {
 						console.error('Data retrieved from API is not an array:', data);
-					  }
+					}
 				} catch (error) {
-				  	console.error('Error fetching people:', error);
+					console.error('Error fetching people:', error);
 				}
-			  },
-			  loadPlanetas : async () => {
+			},
+
+			loadPlanetas: async () => {
 				try {
 					const response = await fetch('https://www.swapi.tech/api/planets');
 					const data = await response.json();
@@ -84,21 +89,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(planetasArray);
 					if (Array.isArray(planetasArray)) {
 						setStore({ planetas: planetasArray });
-					  } else {
+					} else {
 						console.error('Data retrieved from API is not an array:', data);
-					  }
+					}
 				} catch (error) {
-				  	console.error('Error fetching people:', error);
+					console.error('Error fetching people:', error);
 				}
-			  },
-			  setFavorites: (item) =>{
+			},
+
+			setFavorites: (item) => {
 				const store = getStore()
-				if(!store.likes.includes(item)){
-					setStore({likes:[...store.likes,item]})
+				if (!store.likes.includes(item)) {
+					setStore({ likes: [...store.likes, item] })
 				}
-				
-			
-			  }
+			},
+//Esta función de abajo toma el número de la posición de un elemento en una lista, 
+//elimina ese elemento de la lista y luego actualiza la lista original sin ese elemento
+			removeFromFavorites: (index) => {   
+				const store = getStore(); 
+				const updatedLikes = [...store.likes]; 
+				updatedLikes.splice(index, 1); 
+				setStore({ ...store, likes: updatedLikes }); 
+			}
+
+
+
 		}
 	};
 };

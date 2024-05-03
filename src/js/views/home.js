@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from "../store/appContext";
 import CardPersonaje from '../component/cardPersonaje';
 import CardVehículo from '../component/cadVehículo';
@@ -20,22 +20,46 @@ export const Home = () => {
   useEffect(() => {
     actions.loadPlanetas(); // Cargar los planetas al montar la vista
   }, []);
+  
 
   return (
-    
-    <div className="d-flex flex-row flex-wrap justify-content-center">
-      <h1>Personajes</h1>
-      {personajes.map(personaje => (
-        <CardPersonaje key={personaje.id} personaje={personaje} />
-      ))}
-      <h1>Vehículos</h1>
-      {vehículos.map(vehículo => (
-        <CardVehículo key={vehículo.id} vehículo={vehículo} />
-      ))}
-      <h1>Planetas</h1>
-      {planetas.map(planeta => (
-        <CardPlaneta key={planeta.id} planeta={planeta} />
-      ))}
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <h1>Personajes</h1>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+            {personajes.map(personaje => (
+              <div key={personaje.id} className="col mb-4">
+                <CardPersonaje personaje={personaje} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <h1>Vehículos</h1>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+            {vehículos.map(vehículo => (
+              <div key={vehículo.id} className="col mb-4">
+                <CardVehículo vehículo={vehículo} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <h1>Planetas</h1>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+            {planetas.map(planeta => (
+              <div key={planeta.id} className="col mb-4">
+                <CardPlaneta planeta={planeta} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
