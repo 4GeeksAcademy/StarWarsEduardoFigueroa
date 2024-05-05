@@ -103,13 +103,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ likes: [...store.likes, item] })
 				}
 			},
-//Esta función de abajo toma el número de la posición de un elemento en una lista, 
-//elimina ese elemento de la lista y luego actualiza la lista original sin ese elemento
-			removeFromFavorites: (index) => {   
-				const store = getStore(); 
-				const updatedLikes = [...store.likes]; 
-				updatedLikes.splice(index, 1); 
-				setStore({ ...store, likes: updatedLikes }); 
+			//Esta función de abajo toma el número de la posición de un elemento en una lista, 
+			//elimina ese elemento de la lista y luego actualiza la lista original sin ese elemento
+			removeFromFavorites: (index) => {
+				const store = getStore();
+				const updatedLikes = [...store.likes];
+				updatedLikes.splice(index, 1);
+				setStore({ ...store, likes: updatedLikes });
+			},
+			mostrarPersonaje: (personaje, history) => {
+				history(`/personaje/${personaje.id}`, { personajeData: personaje });
+
 			}
 
 

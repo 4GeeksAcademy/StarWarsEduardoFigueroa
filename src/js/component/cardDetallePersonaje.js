@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardDetallePersonaje = ({ personaje }) => {
+const CardDetallePersonaje = () => {
   return (
     <div className="card">
       <img src={personaje.image} className="card-img-top" alt={personaje.name} />

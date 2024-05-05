@@ -36,7 +36,7 @@ const CardPersonaje = ({ personaje }) => {
           Color de pelo: {detalles.hair_color}
         </p>
         <div className="button-group" style={{ marginTop: "auto" }}>
-          <button className="btn btn-outline-primary">Leer más</button>
+          <button onClick={()=>{actions.mostrarPersonaje(personaje, history)}} className="btn btn-outline-primary">Leer más</button>
           <button onClick={()=>{actions.setFavorites(personaje)}} className="btn btn-outline-danger"><i class="fas fa-heart"></i></button>
         </div>
       </div>
