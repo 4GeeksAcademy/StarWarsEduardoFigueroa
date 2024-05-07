@@ -1,15 +1,22 @@
-import React from 'react';
+import React,{useEffect, useContext} from 'react';
+import { useParams } from 'react-router';
+import { Context } from '../store/appContext';
 
-const CardDetallePersonaje = () => {
+export const CardDetallePersonaje = () => {
+  const params = useParams()
+  const {actions,store}= useContext(Context)
+  useEffect(()=>{
+    actions.getPersonaje(params.id)
+  },[])
+  console.log(store.personaje);
   return (
     <div className="card">
-      <img src={personaje.image} className="card-img-top" alt={personaje.name} />
+       <img src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`} className="card-img-top" alt={store.personaje.properties?.name} />
       <div className="card-body">
-        <h5 className="card-title">{personaje.name}</h5>
-        <p className="card-text">{personaje.description}</p>
-      </div>
+        <h5 className="card-title">{store.personaje.properties?.name}</h5>
+        <p className="card-text">{store.personaje.description}</p>
+      </div> 
     </div>
   );
 };
 
-export default CardDetallePersonaje;

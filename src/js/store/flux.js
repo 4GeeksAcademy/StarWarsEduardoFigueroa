@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			vehículos: [],
 			planetas: [],
-			likes: []
+			likes: [],
+			personaje: {},
 
 		},
 		actions: {
@@ -111,13 +112,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				updatedLikes.splice(index, 1);
 				setStore({ ...store, likes: updatedLikes });
 			},
-			mostrarPersonaje: (personaje, history) => {
-				history(`/personaje/${personaje.id}`, { personajeData: personaje });
+			getPersonaje: async(id) =>{
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
+					const data = await response.json();
+				setStore({personaje:data.result})
+					
+				} catch (error) {
+					console.error('Error fetching people:', error);
+				}
 
 			}
-
-
-
 		}
 	};
 };

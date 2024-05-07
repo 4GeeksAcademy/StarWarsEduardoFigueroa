@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import CardPersonaje from '../component/cardPersonaje';
 import CardVehículo from '../component/cadVehículo';
 import CardPlaneta from '../component/cardPlaneta';
+import "../../styles/home.css";
 
 
 export const Home = () => {
@@ -27,9 +28,9 @@ export const Home = () => {
       <div className="row">
         <div className="col">
           <h1>Personajes</h1>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+          <div className="overflow">
             {personajes.map(personaje => (
-              <div key={personaje.id} className="col mb-4">
+              <div key={personaje.uid} className="col mb-4">
                 <CardPersonaje personaje={personaje} />
               </div>
             ))}
@@ -41,7 +42,7 @@ export const Home = () => {
           <h1>Vehículos</h1>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
             {vehículos.map(vehículo => (
-              <div key={vehículo.id} className="col mb-4">
+              <div key={vehículo.uid} className="col mb-4">
                 <CardVehículo vehículo={vehículo} />
               </div>
             ))}
@@ -53,7 +54,7 @@ export const Home = () => {
           <h1>Planetas</h1>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
             {planetas.map(planeta => (
-              <div key={planeta.id} className="col mb-4">
+              <div key={planeta.uid} className="col mb-4">
                 <CardPlaneta planeta={planeta} />
               </div>
             ))}
