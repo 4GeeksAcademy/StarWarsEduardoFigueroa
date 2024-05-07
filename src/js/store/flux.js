@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetas: [],
 			likes: [],
 			personaje: {},
+			vehículo: {},
+			planeta: {},
 
 		},
 		actions: {
@@ -122,7 +124,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error('Error fetching people:', error);
 				}
 
-			}
+			},
+			getPlaneta: async(id) =>{
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
+					const data = await response.json();
+				setStore({planeta:data.result})
+					
+				} catch (error) {
+					console.error('Error fetching people:', error);
+				}
+
+			},
+
+			
+
 		}
 	};
 };

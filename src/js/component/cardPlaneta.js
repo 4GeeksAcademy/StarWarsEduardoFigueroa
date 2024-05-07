@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const CardPlaneta = ({ planeta }) => {
     const { store, actions } = useContext(Context);
@@ -36,7 +37,7 @@ const CardPlaneta = ({ planeta }) => {
                     Periodo de rotación: {detalles.rotation_period}
                 </p>
                 <div className="button-group" style={{ marginTop: "auto" }}>
-                    <button className="btn btn-outline-primary">Leer más</button>
+                    <Link to={`/planeta/${planeta.uid}`} className="btn btn-outline-primary">Leer más</Link>
                     <button onClick={()=>{actions.setFavorites(planeta)}} className="btn btn-outline-danger"><i className="fas fa-heart"></i></button>
                 </div>
             </div>

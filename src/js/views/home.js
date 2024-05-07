@@ -40,7 +40,7 @@ export const Home = () => {
       <div className="row">
         <div className="col">
           <h1>Vehículos</h1>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+          <div className="overflow">
             {vehículos.map(vehículo => (
               <div key={vehículo.uid} className="col mb-4">
                 <CardVehículo vehículo={vehículo} />
@@ -52,7 +52,7 @@ export const Home = () => {
       <div className="row">
         <div className="col">
           <h1>Planetas</h1>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+          <div className="overflow">
             {planetas.map(planeta => (
               <div key={planeta.uid} className="col mb-4">
                 <CardPlaneta planeta={planeta} />

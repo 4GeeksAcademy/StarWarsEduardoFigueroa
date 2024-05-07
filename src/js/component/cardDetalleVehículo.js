@@ -1,4 +1,6 @@
-import React from 'react';
+import React,{useEffect, useContext} from 'react';
+import { useParams } from 'react-router';
+import { Context } from '../store/appContext';
 
 const CardDetalleVehículo = ({ vehículo }) => {
   return (
@@ -14,3 +16,5 @@ const CardDetalleVehículo = ({ vehículo }) => {
 };
 
 export default CardDetalleVehículo;
+
+
