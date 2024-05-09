@@ -14,7 +14,7 @@ export const CardDetallePlaneta = () => {
     <div className="card" style={{ width: "1000px", height: "460px", margin: "auto" }}>
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`} className="img-fluid rounded-start" alt={store.planeta.properties?.name} />
+          <img src={`https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`} className="img-fluid rounded-start" alt={store.planeta.properties?.name} />
         </div>
         <div className="col-md-8">
           <div className="card-body" style={{height: "460px"}}>
