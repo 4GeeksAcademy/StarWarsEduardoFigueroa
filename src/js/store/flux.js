@@ -129,12 +129,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
 					const data = await response.json();
-				setStore({planeta:data.result})
+				setStore({planeta:data.result.properties})
 					
 				} catch (error) {
 					console.error('Error fetching people:', error);
 				}
 
+			},
+			getVehicleDetails: async (id) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`);
+					const data = await response.json();
+					setStore({ vehículo: data.result.properties });
+				} catch (error) {
+					console.error('Error fetching vehicle details:', error);
+				}
+			},
+			
+			getPlanetDetails: async (id) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
+					const data = await response.json();
+					setStore({ planeta: data.result.properties });
+				} catch (error) {
+					console.error('Error fetching planet details:', error);
+				}
 			},
 
 			

@@ -17,12 +17,12 @@ const CardVehículo = ({ vehículo }) => {
   }, [])
 
   return (
-    <div className="card" style={{ width: "200px", marginRight: "10px" }}>
+    <div className="card" style={{ height: "400px", width: "400px", marginRight: "50px", backgroundColor:"#030303", color:"white" }}>
       <img
         src={`https://starwars-visualguide.com/assets/img/vehicles/${vehículo.uid}.jpg`}
         className="card-img-top"
         alt={vehículo.name}
-        style={{ width: "100%", height: "150px", objectFit: "cover" }}
+        style={{ width: "400px", height: "200px",  maxHeight: "100%", objectFit: "cover" }}
       />
       <div className="card-body" style={{ padding: "10px" }}>
         <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>
@@ -38,7 +38,7 @@ const CardVehículo = ({ vehículo }) => {
           Pasajeros: {detalles.passengers}
         </p>
         <div className="button-group" style={{ marginTop: "auto" }}>
-          <Link to={`/vehículo/${vehículo.uid}`} className="btn btn-outline-primary">Leer más</Link>
+          <Link to={`/vehículo/${vehículo.uid}`} className="btn btn-outline-warning">Leer más</Link>
           <button onClick={()=>{actions.setFavorites(vehículo)}} className="btn btn-outline-danger"><i className="fas fa-heart"></i></button>
         </div>
       </div>

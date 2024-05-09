@@ -27,7 +27,7 @@ export const Home = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h1>Personajes</h1>
+          <h1 className='títulos'>Personajes</h1>
           <div className="overflow">
             {personajes.map(personaje => (
               <div key={personaje.uid} className="col mb-4">
@@ -39,7 +39,7 @@ export const Home = () => {
       </div>
       <div className="row">
         <div className="col">
-          <h1>Vehículos</h1>
+          <h1 className='títulos'>Vehículos</h1>
           <div className="overflow">
             {vehículos.map(vehículo => (
               <div key={vehículo.uid} className="col mb-4">
@@ -51,7 +51,7 @@ export const Home = () => {
       </div>
       <div className="row">
         <div className="col">
-          <h1>Planetas</h1>
+          <h1 className='títulos'>Planetas</h1>
           <div className="overflow">
             {planetas.map(planeta => (
               <div key={planeta.uid} className="col mb-4">

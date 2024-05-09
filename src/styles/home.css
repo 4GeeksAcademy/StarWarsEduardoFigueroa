@@ -2,3 +2,52 @@
     display: flex;
     overflow-x: scroll;
 }
+.card {
+    box-shadow: 0 0 20px black;
+    width: 200px;
+    margin-right: 10px;
+}
+.card-img-top {
+    width: 100%;
+    height: 100%; /* Altura deseada */
+    object-fit: cover; /* Ajusta la imagen al contenedor sin recortar */
+  }
+
+.card-body {
+    padding: 10px;
+    height: 180px; /* Establece la altura máxima de la tarjeta */
+    overflow: hidden;
+}
+
+.card-text {
+    font-size: 14px;
+    margin: 5px 0;
+    white-space: nowrap; /* Evita que el texto se desborde */
+    overflow: hidden; /* Oculta cualquier texto que se desborde */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto desbordado */
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos a lo largo del contenedor y separa los botones */
+    margin-top: auto;
+    margin-right: 1opx;
+    margin-left: 5px;
+}
+.títulos{
+    color: #efb800;
+   
+}
+.h-100{
+    background-image: url(https://st3.depositphotos.com/15225220/18932/v/450/depositphotos_189328220-stock-illustration-perfect-starry-night-sky-background.jpg);
+    opacity: 0,5;
+}
+.app{
+    background-image: url(https://st3.depositphotos.com/15225220/18932/v/450/depositphotos_189328220-stock-illustration-perfect-starry-night-sky-background.jpg);
+    opacity: 0,5;
+}
+.contenedor{
+  background-image: url(https://st3.depositphotos.com/15225220/18932/v/450/depositphotos_189328220-stock-illustration-perfect-starry-night-sky-background.jpg);
+  opacity: 0,5;
+}

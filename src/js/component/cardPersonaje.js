@@ -16,13 +16,14 @@ const CardPersonaje = ({ personaje }) => {
   }, [])
 
   return (
-    <div className="card" style={{ width: "200px", marginRight: "10px" }}>
+    <div className="card" style={{height: "400px", width: "400px", marginRight: "50px",backgroundColor:"#030303", color:"white"  }}>
       <img
         src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
         className="card-img-top"
         alt={personaje.name}
-        style={{ width: "100%", height: "150px", objectFit: "cover" }}
+        style={{ width: "400px", height: "200px",  maxHeight: "100%", objectFit: "cover" }}
       />
+      
       <div className="card-body" style={{ padding: "10px" }}>
         <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>
           {personaje.name}
@@ -37,8 +38,8 @@ const CardPersonaje = ({ personaje }) => {
           Color de pelo: {detalles.hair_color}
         </p>
         <div className="button-group" style={{ marginTop: "auto" }}>
-          <Link to={`/personaje/${personaje.uid}`} className="btn btn-outline-primary">Leer más</Link>
-          <button onClick={()=>{actions.setFavorites(personaje)}} className="btn btn-outline-danger"><i className="fas fa-heart"></i></button>
+          <Link to={`/personaje/${personaje.uid}`} className="btn btn-outline-warning">Leer más</Link>
+          <button onClick={()=>{actions.setFavorites(personaje)}} className="btn btn-outline-danger" ><i className="fas fa-heart"></i></button>
         </div>
       </div>
     </div>
