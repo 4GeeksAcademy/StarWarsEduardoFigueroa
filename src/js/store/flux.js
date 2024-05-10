@@ -14,12 +14,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			personajes: [],
-			vehículos: [],
+			vehiculos: [],
 			planetas: [],
 			likes: [],
 			personaje: {},
-			vehículo: {},
+			vehiculo: {},
 			planeta: {},
+			imagenes: [],
 
 		},
 		actions: {
@@ -66,15 +67,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			loadVehículos: async () => {
+			loadVehiculos: async () => {
 				try {
 					const response = await fetch('https://www.swapi.tech/api/vehicles');
 					const data = await response.json();
 					console.log(data);
-					const vehículosArray = data.results;
-					console.log(vehículosArray);
-					if (Array.isArray(vehículosArray)) {
-						setStore({ vehículos: vehículosArray });
+					const vehiculosArray = data.results;
+					console.log(vehiculosArray);
+					if (Array.isArray(vehiculosArray)) {
+						setStore({ vehiculos: vehiculosArray });
 					} else {
 						console.error('Data retrieved from API is not an array:', data);
 					}
@@ -92,6 +93,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(planetasArray);
 					if (Array.isArray(planetasArray)) {
 						setStore({ planetas: planetasArray });
+					} else {
+						console.error('Data retrieved from API is not an array:', data);
+					}
+				} catch (error) {
+					console.error('Error fetching people:', error);
+				}
+			},
+
+			loadImagenesPlanetas: async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/planets');
+					const data = await response.json();
+					console.log(data);
+					const planetasArray = data.results;
+					console.log(planetasArray);
+					const imgArray = [];
+					if (Array.isArray(planetasArray)) {
+						for(let i=0; i<planetasArray.length; i++){
+							if(i==0){
+								imgArray[i+1] = `https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357`;
+							}else{
+								imgArray[i+1] = `https://starwars-visualguide.com/assets/img/planets/${i+1}.jpg`;
+							}
+						}
+						console.log(imgArray);
+						setStore({ imagenes: imgArray });
 					} else {
 						console.error('Data retrieved from API is not an array:', data);
 					}
@@ -118,43 +145,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
 					const data = await response.json();
-				setStore({personaje:data.result})
+					setStore({personaje:data.result})
+
+					const response2 = await fetch(data.result.properties.homeworld);
+					const data2 = await response2.json();
+					setStore({planeta:data2.result})
 					
 				} catch (error) {
 					console.error('Error fetching people:', error);
 				}
 
 			},
-			getPlaneta: async(id) =>{
-				try {
-					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
-					const data = await response.json();
-				setStore({planeta:data.result.properties})
-					
-				} catch (error) {
-					console.error('Error fetching people:', error);
-				}
-
-			},
-			getVehicleDetails: async (id) => {
+			
+			getVehiculo: async (id) => {
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`);
 					const data = await response.json();
-					setStore({ vehículo: data.result.properties });
+					setStore({ vehiculo: data.result });
 				} catch (error) {
 					console.error('Error fetching vehicle details:', error);
 				}
 			},
 			
-			getPlanetDetails: async (id) => {
+			getPlaneta: async (id) => {
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
 					const data = await response.json();
-					setStore({ planeta: data.result.properties });
+					setStore({ planeta: data.result });
 				} catch (error) {
 					console.error('Error fetching planet details:', error);
 				}
-			},
+			}
 
 			
 

@@ -21,14 +21,14 @@ export const Navbar = () => {
 					<button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 						Favoritos {store.likes.length}
 					</button>
-					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" style={{ right: 0, top: '100%', marginTop: '5px', backgroundImage: "url(https://st3.depositphotos.com/15225220/18932/v/450/depositphotos_189328220-stock-illustration-perfect-starry-night-sky-background.jpg)", color: "white", border: "2px", }}>
+					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" style={{ width: '280px', right: 0, top: '100%', marginTop: '5px', backgroundColor: "black", color: "white", border: "2px", }}>
 						{store.likes.length === 0 ? <li>Añade un Favorito</li> :
 							store.likes.map((e, index) => {
 								return (
 									<li key={index}>
 										<div className="item">
-											<span>{e.name}</span>
-											<i className="fas fa-trash-alt float-end" onClick={() => removeFromFavorites(index)} style={{ cursor: 'pointer' }}></i>
+											<span className="nombres">{e.name}</span>
+											<i className="fas fa-trash-alt float-end" onClick={() => removeFromFavorites(index)} style={{ cursor: 'pointer', marginRight:'15px' }}></i>
 										</div>
 									</li>
 								)

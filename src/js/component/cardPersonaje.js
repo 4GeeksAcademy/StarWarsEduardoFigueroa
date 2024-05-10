@@ -16,15 +16,15 @@ const CardPersonaje = ({ personaje }) => {
   }, [])
 
   return (
-    <div className="card" style={{height: "400px", width: "400px", marginRight: "50px",backgroundColor:"#030303", color:"white"  }}>
+    <div className="card1" style={{height: "600px", width: "300px", marginRight: "50px",backgroundColor:"#030303", color:"white"  }}>
       <img
         src={`https://starwars-visualguide.com/assets/img/characters/${personaje.uid}.jpg`}
-        className="card-img-top"
+        className="card-img-top1"
         alt={personaje.name}
-        style={{ width: "400px", height: "200px",  maxHeight: "100%", objectFit: "cover" }}
+        style={{ width: "300px", height: "420px", maxHeight:"80%", objectFit: "contain" }}
       />
       
-      <div className="card-body" style={{ padding: "10px" }}>
+      <div className="card-body1" style={{ padding: "10px" }}>
         <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>
           {personaje.name}
         </h5>

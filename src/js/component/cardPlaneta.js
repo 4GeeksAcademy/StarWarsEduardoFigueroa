@@ -16,12 +16,12 @@ const CardPlaneta = ({ planeta }) => {
     }, [])
 
     return (
-        <div className="card" style={{ height: "400px", width: "400px", marginRight: "50px", backgroundColor:"#030303", color:"white" }}>
+        <div className="card" style={{ height: "400px", width: "300px", marginRight: "50px",backgroundColor:"#030303", color:"white" }}>
             <img
-                src={`https://starwars-visualguide.com/assets/img/planets/${planeta.uid}.jpg`}
-                className="card-img-top"
+                src={store.imagenes[planeta.uid]}
+                className="card-img-top1"
                 alt={planeta.name}
-                style={{ width: "400px", height: "200px",  maxHeight: "100%", objectFit: "cover" }}
+                style={{ width: "100%", height: "50%",  objectFit: "cover" }}
             />
             <div className="card-body" style={{ padding: "10px" }}>
                 <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>

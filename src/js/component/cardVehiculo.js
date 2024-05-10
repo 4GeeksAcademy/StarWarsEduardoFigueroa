@@ -4,29 +4,29 @@ import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
 
-const CardVehículo = ({ vehículo }) => {
+const CardVehiculo = ({ vehiculo }) => {
   const { store, actions } = useContext(Context);
   const history = useNavigate();
   const [detalles, setDetalles] = useState({});
 
   useEffect(() => {
-    fetch(`https://www.swapi.tech/api/vehicles/${vehículo.uid}`)
+    fetch(`https://www.swapi.tech/api/vehicles/${vehiculo.uid}`)
       .then(res => res.json())
       .then(data => setDetalles(data.result.properties))
       .catch(err => console.error(err))
   }, [])
 
   return (
-    <div className="card" style={{ height: "400px", width: "400px", marginRight: "50px", backgroundColor:"#030303", color:"white" }}>
+    <div className="card" style={{ height: "400px", width: "300px", marginRight: "50px",backgroundColor:"#030303", color:"white" }}>
       <img
-        src={`https://starwars-visualguide.com/assets/img/vehicles/${vehículo.uid}.jpg`}
-        className="card-img-top"
-        alt={vehículo.name}
-        style={{ width: "400px", height: "200px",  maxHeight: "100%", objectFit: "cover" }}
+        src={`https://starwars-visualguide.com/assets/img/vehicles/${vehiculo.uid}.jpg`}
+        className="card-img-top1"
+        alt={vehiculo.name}
+        style={{ width: "100%", height: "200px", objectFit: "contain" }}
       />
       <div className="card-body" style={{ padding: "10px" }}>
         <h5 className="card-title" style={{ fontSize: "16px", marginBottom: "10px" }}>
-          {vehículo.name}
+          {vehiculo.name}
         </h5>
         <p className="card-text" style={{ fontSize: "14px", margin: "5px 0" }}>
           Modelo: {detalles.model}
@@ -38,12 +38,12 @@ const CardVehículo = ({ vehículo }) => {
           Pasajeros: {detalles.passengers}
         </p>
         <div className="button-group" style={{ marginTop: "auto" }}>
-          <Link to={`/vehículo/${vehículo.uid}`} className="btn btn-outline-warning">Leer más</Link>
-          <button onClick={()=>{actions.setFavorites(vehículo)}} className="btn btn-outline-danger"><i className="fas fa-heart"></i></button>
+          <Link to={`/vehiculo/${vehiculo.uid}`} className="btn btn-outline-warning">Leer más</Link>
+          <button onClick={()=>{actions.setFavorites(vehiculo)}} className="btn btn-outline-danger"><i className="fas fa-heart"></i></button>
         </div>
       </div>
     </div>
   );
 };
 
-export default CardVehículo;
+export default CardVehiculo;

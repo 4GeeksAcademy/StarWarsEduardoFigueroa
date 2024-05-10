@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from "../store/appContext";
 import CardPersonaje from '../component/cardPersonaje';
-import CardVehículo from '../component/cadVehículo';
+import CardVehiculo from '../component/cardVehiculo';
 import CardPlaneta from '../component/cardPlaneta';
 import "../../styles/home.css";
 
@@ -9,17 +9,20 @@ import "../../styles/home.css";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const { personajes } = store;
-  const { vehículos } = store;
+  const { vehiculos } = store;
   const {planetas} = store;
 
   useEffect(() => {
     actions.loadPersonajes(); // Cargar los personajes al montar la vista
   }, []);
   useEffect(() => {
-    actions.loadVehículos(); // Cargar los vehículos al montar la vista
+    actions.loadVehiculos(); // Cargar los vehiculos al montar la vista
   }, []);
   useEffect(() => {
     actions.loadPlanetas(); // Cargar los planetas al montar la vista
+  }, []);
+  useEffect(() => {
+    actions.loadImagenesPlanetas(); // Cargar las imagenes de los planetas al montar la vista
   }, []);
   
 
@@ -39,11 +42,11 @@ export const Home = () => {
       </div>
       <div className="row">
         <div className="col">
-          <h1 className='títulos'>Vehículos</h1>
+          <h1 className='títulos'>Vehiculos</h1>
           <div className="overflow">
-            {vehículos.map(vehículo => (
-              <div key={vehículo.uid} className="col mb-4">
-                <CardVehículo vehículo={vehículo} />
+            {vehiculos.map(vehiculo => (
+              <div key={vehiculo.uid} className="col mb-4">
+                <CardVehiculo vehiculo={vehiculo} />
               </div>
             ))}
           </div>
