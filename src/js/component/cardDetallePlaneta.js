@@ -30,7 +30,7 @@ export const CardDetallePlaneta = () => {
             <p className="card-text">Gravedad: {store.planeta.properties?.gravity}</p>
             <p className="card-text">Población: {store.planeta.properties?.population}</p>
             <p className="card-text">surface_water: {store.planeta.properties?.surface_water}</p>            
-            <p className="card-text"><a href={store.planeta.url} target="_blank" style={{ color:"#efb800"}}>Más información</a></p>
+            <p className="card-text"><a href={store.planeta.properties?.url} target="_blank" style={{ color:"#efb800"}}>Más información</a></p>
           </div>
         </div>
       </div>
